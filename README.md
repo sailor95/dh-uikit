@@ -1,8 +1,8 @@
 # DH UIKit
 
-My UIKit
+My UIKit.
 
-See Storybook for spec
+See Storybook for spec,
 
 ```bash
 npm install
