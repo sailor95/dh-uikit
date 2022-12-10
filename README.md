@@ -4,8 +4,10 @@ My UIKit
 
 See Storybook for spec
 
-> npm install
-> npm run storybook
+```bash
+npm install
+npm run storybook
+```
 
 ## Components
 
