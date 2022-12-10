@@ -1,6 +1,42 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
+
+const containedStyle = css`
+  background: ${props => props.$btnColor};
+  color: #fff;
+`
+
+const outlinedStyle = css`
+  background: #fff;
+  color: ${props => props.$btnColor};
+  border: 1px solid ${props => props.$btnColor};
+  &:hover {
+    background: ${props => `${props.$btnColor}10`};
+  }
+`
+
+const textStyle = css`
+  background: #fff;
+  color: ${props => props.$btnColor};
+  &:hover {
+    background: ${props => `${props.$btnColor}10`};
+  }
+`
+
+const disabledStyle = css`
+  cursor: not-allowed;
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
+`
+
+const variantMap = {
+  contained: containedStyle,
+  outlined: outlinedStyle,
+  text: textStyle,
+}
 
 const StyledButton = styled.button`
   border: none;
@@ -21,6 +57,10 @@ const StyledButton = styled.button`
   }
   &:active {
     opacity: 0.7;
+  }
+  ${props => variantMap[props.$variant] || variantMap.primary}
+  &:disabled {
+    ${disabledStyle}
   }
 `
 
