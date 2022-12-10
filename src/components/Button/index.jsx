@@ -166,4 +166,15 @@ Button.propTypes = {
   onClick: PropTypes.func,
 }
 
+Button.defaultProps = {
+  variant: 'contained',
+  className: null,
+  themeColor: 'primary',
+  isLoading: false,
+  isDisabled: false,
+  startIcon: null,
+  endIcon: null,
+  onClick: () => {},
+}
+
 export default Button

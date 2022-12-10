@@ -5,12 +5,14 @@ const defaultTheme = {
     disable: '#dadada',
     error: '#d0021b',
   },
-};
+}
 
 export const theme = {
   default: defaultTheme,
-};
+}
 
-export default {
+const exportObject = {
   theme,
-};
+}
+
+export default exportObject
