@@ -1,7 +1,7 @@
 import React from 'react'
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload'
 
-import Button from '../components/Button'
+import Button from 'components/Button'
 
 export default {
   title: 'Data Inputs/Button',

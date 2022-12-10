@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
-
 import CircularProgress from '@material-ui/core/CircularProgress'
+
 import { useColor } from 'hooks/useColor'
 
 const containedStyle = css`
