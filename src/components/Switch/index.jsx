@@ -15,6 +15,21 @@ const SwitchButton = styled.div`
   box-sizing: content-box;
 `
 
+const Thumb = styled.div`
+  width: ${props => props.$thumbSize}px;
+  height: ${props => props.$thumbSize}px;
+  border-radius: 50px;
+  background: #fff;
+  position: absolute;
+  ${props => {
+    if (props.$isChecked) {
+      return `left: ${props.$switchWidth - props.$thumbSize}px`
+    }
+    return `left: 0px`
+  }}
+  transition: left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, right 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+`
+
 const Switch = ({
   isChecked,
   isDisabled,
@@ -25,7 +40,11 @@ const Switch = ({
   unCheckedChildren,
   ...props
 }) => {
-  return <SwitchButton></SwitchButton>
+  return (
+    <SwitchButton>
+      <Thumb />
+    </SwitchButton>
+  )
 }
 
 Switch.propTypes = {
