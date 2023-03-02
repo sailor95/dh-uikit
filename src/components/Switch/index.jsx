@@ -2,7 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-const SwitchButton = styled.div``
+const SwitchButton = styled.div`
+  height: ${props => props.$thumbSize}px;
+  width: ${props => props.$switchWidth}px;
+  background: ${props => props.$switchColor};
+  display: inline-flex;
+  color: #fff;
+  border-radius: 50px;
+  position: relative;
+  border: 3px solid ${props => props.$switchColor};
+  cursor: ${props => (props.$isDisabled ? 'not-allowed' : 'pointer')};
+  box-sizing: content-box;
+`
 
 const Switch = ({
   isChecked,
