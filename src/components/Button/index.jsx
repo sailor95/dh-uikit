@@ -85,10 +85,10 @@ const StyledButton = styled.button`
  * `Button` a clickable button, trigger business logic after user click event.
  */
 const Button = ({
+  variant,
   className,
   children,
   themeColor,
-  variant,
   isLoading,
   isDisabled,
   startIcon,
