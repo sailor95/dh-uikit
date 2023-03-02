@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { useColor } from 'hooks/useColor'
 
 const SwitchButton = styled.div`
   height: ${props => props.$thumbSize}px;
@@ -40,9 +41,26 @@ const Switch = ({
   unCheckedChildren,
   ...props
 }) => {
+  const { makeColor } = useColor()
+  const switchColor = makeColor({ themeColor, isDisabled: !isChecked })
+
+  const thumbSize = size === 'small' ? 12 : 18
+  const switchWidth = thumbSize // + label
+
   return (
-    <SwitchButton>
-      <Thumb />
+    <SwitchButton
+      $switchWidth={switchWidth}
+      $thumbSize={thumbSize}
+      $switchColor={switchColor}
+      $isDisabled={isDisabled}
+      onClick={isDisabled ? null : onChange}
+      {...props}
+    >
+      <Thumb
+        $isChecked={isChecked}
+        $thumbSize={thumbSize}
+        $switchWidth={switchWidth}
+      />
     </SwitchButton>
   )
 }
