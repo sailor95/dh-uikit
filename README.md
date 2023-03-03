@@ -13,8 +13,8 @@ npm run storybook
 
 - Button
 - Switch
+- Radio
 
 ## WIP
 
-- Radio
 - Checkbox
