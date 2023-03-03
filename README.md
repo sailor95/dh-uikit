@@ -14,6 +14,7 @@ npm run storybook
 - Button
 - Switch
 - Radio
+  - RadioGroup
 
 ## WIP
 
