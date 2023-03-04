@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import Button from '../components/Button'
@@ -26,6 +26,10 @@ const TemplateWithState = args => {
   const handleOnClick = () => {
     setIsChecked(true)
   }
+
+  useEffect(() => {
+    setIsChecked(defaultChecked)
+  }, [defaultChecked])
 
   return (
     <RadioWrapper>
