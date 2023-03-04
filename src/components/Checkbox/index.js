@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Option from '../Option'
 
-// TODO: Reuse logic with Radio
-const Checkbox = props => <div>Checkbox</div>
+const Checkbox = props => <Option {...props} />
 
 Checkbox.propTypes = {
   /**
@@ -14,7 +14,7 @@ Checkbox.propTypes = {
    */
   isDisabled: PropTypes.bool,
   /**
-   * Theme color, or custom hex
+   * Theme color or custom hex
    */
   themeColor: PropTypes.oneOfType([
     PropTypes.oneOf(['primary', 'secondary']),
