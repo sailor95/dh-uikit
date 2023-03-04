@@ -138,7 +138,7 @@ Button.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
   /**
-   * Theme color, or custom hex
+   * Theme color or custom hex
    */
   themeColor: PropTypes.oneOfType([
     PropTypes.oneOf(['primary', 'secondary']),

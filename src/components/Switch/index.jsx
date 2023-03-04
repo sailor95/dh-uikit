@@ -119,7 +119,7 @@ Switch.propTypes = {
    */
   isDisabled: PropTypes.bool,
   /**
-   * Theme color, or custom hex
+   * Theme color or custom hex
    */
   themeColor: PropTypes.oneOfType([
     PropTypes.oneOf(['primary', 'secondary']),
