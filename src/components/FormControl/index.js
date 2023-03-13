@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, cloneElement } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
@@ -109,9 +109,16 @@ const FormControl = ({
   className,
   ...props
 }) => {
-  // TODO: control childrenValue
   const [childrenValue, setChildrenValue] = useState('')
   const showError = isError && errorMessage
+  const isSwitchComponent = children.type.name === 'Switch'
+
+  const handleOnChange = event => {
+    const targetValue = event?.target?.value
+    if (maxLength && targetValue.length > maxLength) return
+    setChildrenValue(targetValue)
+    if (typeof onChange === 'function') onChange(event)
+  }
 
   return (
     <StyledFormControl className={className} $placement={placement} {...props}>
@@ -125,7 +132,13 @@ const FormControl = ({
         )}
       </LabelWrapper>
 
-      {children}
+      {isSwitchComponent
+        ? children
+        : cloneElement(children, {
+            isError,
+            value: childrenValue,
+            onChange: handleOnChange,
+          })}
 
       {showError && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </StyledFormControl>
