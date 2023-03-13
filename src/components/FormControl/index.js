@@ -98,20 +98,23 @@ const ErrorMessage = styled.div`
 `
 
 const FormControl = ({
-  label,
-  children,
-  maxLength,
-  placement,
+  className,
+  isRequired,
   isError,
   errorMessage,
-  isRequired,
+  maxLength,
+  placement,
+  label,
   onChange,
-  className,
+  children,
   ...props
 }) => {
-  const [childrenValue, setChildrenValue] = useState('')
+  const [childrenValue, setChildrenValue] = useState(
+    children?.props?.value || ''
+  )
   const showError = isError && errorMessage
-  const isSwitchComponent = children.type.name === 'Switch'
+  const isToggleComponent =
+    children.type.name === 'Switch' || children.type.name === 'Radio'
 
   const handleOnChange = event => {
     const targetValue = event?.target?.value
@@ -132,7 +135,7 @@ const FormControl = ({
         )}
       </LabelWrapper>
 
-      {isSwitchComponent
+      {isToggleComponent
         ? children
         : cloneElement(children, {
             isError,
@@ -198,8 +201,8 @@ FormControl.defaultProps = {
   isRequired: false,
   isError: false,
   errorMessage: null,
-  placement: 'top-left',
   maxLength: null,
+  placement: 'top-left',
   label: '',
   onChange: () => {},
   children: null,
