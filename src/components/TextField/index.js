@@ -103,7 +103,7 @@ TextField.propTypes = {
    */
   isDisabled: PropTypes.bool,
   /**
-   *  Change callback
+   * Change callback
    */
   onChange: PropTypes.func,
 }
