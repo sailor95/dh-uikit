@@ -91,6 +91,12 @@ const MaxLength = styled.div`
   align-items: flex-end;
 `
 
+const ErrorMessage = styled.div`
+  font-size: 14px;
+  margin-top: 4px !important;
+  color: ${props => props.theme.color.error};
+`
+
 const FormControl = ({
   label,
   children,
@@ -105,6 +111,7 @@ const FormControl = ({
 }) => {
   // TODO: control childrenValue
   const [childrenValue, setChildrenValue] = useState('')
+  const showError = isError && errorMessage
 
   return (
     <StyledFormControl className={className} $placement={placement} {...props}>
@@ -120,7 +127,7 @@ const FormControl = ({
 
       {children}
 
-      <div>Error Message</div>
+      {showError && <ErrorMessage>{errorMessage}</ErrorMessage>}
     </StyledFormControl>
   )
 }
