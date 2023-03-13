@@ -1,5 +1,79 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled, { css } from 'styled-components'
+
+const topCommonStyle = css`
+  flex-direction: column;
+  & > *:not(:first-child) {
+    margin-top: 8px;
+  }
+`
+
+const bottomCommonStyle = css`
+  flex-direction: column-reverse;
+  & > *:not(:first-child) {
+    margin-bottom: 8px;
+  }
+`
+
+const topLeftStyle = css`
+  ${topCommonStyle}
+`
+const topStyle = css`
+  align-items: center;
+  ${topCommonStyle}
+`
+const topRightStyle = css`
+  align-items: flex-end;
+  ${topCommonStyle}
+`
+const bottomLeftStyle = css`
+  ${bottomCommonStyle}
+`
+const bottomStyle = css`
+  align-items: center;
+  ${bottomCommonStyle}
+`
+const bottomRightStyle = css`
+  align-items: flex-end;
+  ${bottomCommonStyle}
+`
+
+const leftStyle = css`
+  align-items: center;
+  & > *:not(:first-child) {
+    margin-left: 8px;
+  }
+`
+
+const rightStyle = css`
+  align-items: center;
+  flex-direction: row-reverse;
+  & > *:not(:first-child) {
+    margin-right: 8px;
+  }
+`
+
+const placementStyleMap = {
+  'top-left': topLeftStyle,
+  top: topStyle,
+  'top-right': topRightStyle,
+  left: leftStyle,
+  right: rightStyle,
+  'bottom-left': bottomLeftStyle,
+  bottom: bottomStyle,
+  'bottom-right': bottomRightStyle,
+}
+
+const StyledFormControl = styled.div`
+  display: inline-flex;
+  ${props => {
+    if (props.$placement) {
+      return placementStyleMap[props.$placement]
+    }
+    return null
+  }}
+`
 
 const FormControl = ({
   label,
@@ -13,8 +87,11 @@ const FormControl = ({
   className,
   ...props
 }) => {
-  //
-  return <div>FormControl</div>
+  return (
+    <StyledFormControl className={className} $placement={placement} {...props}>
+      FormControl
+    </StyledFormControl>
+  )
 }
 
 FormControl.propTypes = {
