@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
@@ -75,6 +75,22 @@ const StyledFormControl = styled.div`
   }}
 `
 
+const LabelWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const RequiredSign = styled.span`
+  color: ${props => props.theme.color.error};
+`
+
+const MaxLength = styled.div`
+  font-size: 14px;
+  color: ${props => props.theme.color.primary};
+  display: flex;
+  align-items: flex-end;
+`
+
 const FormControl = ({
   label,
   children,
@@ -87,9 +103,24 @@ const FormControl = ({
   className,
   ...props
 }) => {
+  // TODO: control childrenValue
+  const [childrenValue, setChildrenValue] = useState('')
+
   return (
     <StyledFormControl className={className} $placement={placement} {...props}>
-      FormControl
+      <LabelWrapper className="form-control__label-wrapper">
+        <div className="form-control__label">
+          {label}
+          {isRequired && <RequiredSign>*</RequiredSign>}
+        </div>
+        {maxLength && (
+          <MaxLength>{`${childrenValue?.length} / ${maxLength}`}</MaxLength>
+        )}
+      </LabelWrapper>
+
+      {children}
+
+      <div>Error Message</div>
     </StyledFormControl>
   )
 }
