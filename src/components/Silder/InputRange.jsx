@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -13,7 +13,26 @@ const Slider = ({
   onChange,
   ...props
 }) => {
-  return <StyledSlider type="range" />
+  const [currentValue, setCurrentValue] = useState(defaultValue)
+  const sliderRef = useRef()
+
+  const handleOnChange = event => {
+    setCurrentValue(sliderRef.current.value)
+    onChange(event)
+  }
+
+  return (
+    <StyledSlider
+      ref={sliderRef}
+      type="range"
+      min={min}
+      max={max}
+      step={step}
+      defaultValue={defaultValue}
+      onChange={handleOnChange}
+      {...props}
+    />
+  )
 }
 
 Slider.propTypes = {
