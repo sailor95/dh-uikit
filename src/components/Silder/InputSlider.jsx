@@ -61,7 +61,7 @@ const StyledSlider = styled.input`
   }
 `
 
-const Slider = ({
+const InputSlider = ({
   defaultValue,
   min,
   max,
@@ -96,7 +96,7 @@ const Slider = ({
   )
 }
 
-Slider.propTypes = {
+InputSlider.propTypes = {
   /**
    * Default value
    */
@@ -126,7 +126,7 @@ Slider.propTypes = {
   onChange: PropTypes.func,
 }
 
-Slider.defaultProps = {
+InputSlider.defaultProps = {
   defaultValue: 0,
   min: 0,
   max: 100,
@@ -135,4 +135,4 @@ Slider.defaultProps = {
   onChange: () => {},
 }
 
-export default Slider
+export default InputSlider
