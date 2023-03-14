@@ -16,8 +16,11 @@ npm run storybook
 - Radio
   - RadioGroup
 - Checkbox
+- TextField
+- FormControl
 
 ## WIP
 
-- TextField
-- FormControl
+- Slider
+- Rate
+- Upload
