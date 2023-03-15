@@ -40,8 +40,8 @@ const calculateTrackWidth = ({ min, max, width }) => {
   if (width > max) return max
   return width
 }
-const widthToValue = ({ min, max, ratio }) => (max - min) * ratio
-const valueToWidth = ({ min, max, value, railWidth }) =>
+const getSliderValue = ({ min, max, ratio }) => (max - min) * ratio
+const getDefaultWidth = ({ min, max, value, railWidth }) =>
   (value / (max - min)) * railWidth
 
 const CustomSlider = ({ defaultValue, min, max, themeColor, onChange }) => {
@@ -63,7 +63,7 @@ const CustomSlider = ({ defaultValue, min, max, themeColor, onChange }) => {
     })
     setThumbPosX(trackWidth)
     onChange(
-      widthToValue({
+      getSliderValue({
         min,
         max,
         ratio: trackWidth / railWidth,
@@ -75,7 +75,7 @@ const CustomSlider = ({ defaultValue, min, max, themeColor, onChange }) => {
   useEffect(() => {
     const railDOM = railRef.current
     const railWidth = railDOM.clientWidth
-    const defaultWidth = valueToWidth({
+    const defaultWidth = getDefaultWidth({
       min,
       max,
       value: defaultValue,
