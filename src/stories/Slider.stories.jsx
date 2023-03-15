@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import Slider from '../components/Slider'
+import Slider, { CustomSlider } from '../components/Slider'
 
 export default {
   title: 'Data Inputs/Slider',
@@ -33,6 +33,23 @@ const Template = args => {
   )
 }
 
+const CustomTemplate = args => {
+  const { defaultValue } = args
+  const [value, setValue] = useState(defaultValue || 0)
+
+  return (
+    <SliderWrapper>
+      <CustomSlider
+        {...args}
+        onChange={currentValue => {
+          setValue(currentValue.toFixed(2))
+        }}
+      />
+      <span>{value}</span>
+    </SliderWrapper>
+  )
+}
+
 export const Default = Template.bind({})
 Default.args = {}
 
@@ -52,4 +69,9 @@ WithStep.args = {
 export const WithDefaultValue = Template.bind({})
 WithDefaultValue.args = {
   defaultValue: 50,
+}
+
+export const CustomizedSlider = CustomTemplate.bind({})
+CustomizedSlider.args = {
+  onChange: value => console.log('value: ', value),
 }
