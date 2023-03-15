@@ -6,20 +6,21 @@ import { useColor } from 'hooks/useColor'
 
 const THUMB_SIZE = 20
 
-const railStyle = css`
+export const railStyle = css`
   background: #ddd;
   width: 320px;
   height: 6px;
   border-radius: 5px;
 `
 
-const trackStyle = css`
+export const trackStyle = css`
   background: ${props => props.$color};
   border-radius: 5px;
   height: 6px;
 `
 
 const StyledSlider = styled.input`
+  /* rail */
   &[type='range'] {
     -webkit-appearance: none;
     outline: none;
@@ -27,6 +28,7 @@ const StyledSlider = styled.input`
     z-index: 0;
     ${railStyle}
 
+    /* track */
     &:before {
       content: '';
       position: absolute;
@@ -37,7 +39,7 @@ const StyledSlider = styled.input`
     }
   }
 
-  // thumb style
+  /* thumb */
   &[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: ${THUMB_SIZE}px;
