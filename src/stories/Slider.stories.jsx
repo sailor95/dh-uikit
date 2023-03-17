@@ -8,7 +8,7 @@ export default {
   component: Slider,
 }
 
-const SliderWrapper = styled.div`
+const Container = styled.div`
   display: flex;
   align-items: center;
   & > *:not(:first-child) {
@@ -21,7 +21,7 @@ const Template = args => {
   const [value, setValue] = useState(defaultValue || 0)
 
   return (
-    <SliderWrapper>
+    <Container>
       <Slider
         {...args}
         onChange={event => {
@@ -29,7 +29,7 @@ const Template = args => {
         }}
       />
       <span>{value}</span>
-    </SliderWrapper>
+    </Container>
   )
 }
 
@@ -38,7 +38,7 @@ const CustomTemplate = args => {
   const [value, setValue] = useState(defaultValue || 0)
 
   return (
-    <SliderWrapper>
+    <Container>
       <CustomSlider
         {...args}
         onChange={currentValue => {
@@ -46,7 +46,7 @@ const CustomTemplate = args => {
         }}
       />
       <span>{value}</span>
-    </SliderWrapper>
+    </Container>
   )
 }
 

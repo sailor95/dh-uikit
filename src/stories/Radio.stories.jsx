@@ -10,7 +10,7 @@ export default {
   component: Radio,
 }
 
-const RadioWrapper = styled.div`
+const Container = styled.div`
   display: flex;
   gap: 15px;
   align-items: center;
@@ -32,12 +32,12 @@ const TemplateWithState = args => {
   }, [defaultChecked])
 
   return (
-    <RadioWrapper>
+    <Container>
       <Radio {...args} isChecked={isChecked} onClick={handleOnClick} />
       <Button variant="outlined" onClick={() => setIsChecked(false)}>
         Reset
       </Button>
-    </RadioWrapper>
+    </Container>
   )
 }
 

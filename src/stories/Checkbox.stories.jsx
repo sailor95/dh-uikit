@@ -12,7 +12,7 @@ export default {
   },
 }
 
-const RadioWrapper = styled.div`
+const RadioContainer = styled.div`
   display: flex;
   gap: 15px;
   align-items: center;
@@ -34,9 +34,9 @@ const TemplateWithState = args => {
   }, [defaultChecked])
 
   return (
-    <RadioWrapper>
+    <RadioContainer>
       <Checkbox {...args} isChecked={isChecked} onClick={handleOnClick} />
-    </RadioWrapper>
+    </RadioContainer>
   )
 }
 
@@ -55,7 +55,7 @@ const TemplateWithColorPicker = args => {
   }, [defaultChecked])
 
   return (
-    <RadioWrapper>
+    <RadioContainer>
       <Checkbox
         {...args}
         themeColor={color}
@@ -77,7 +77,7 @@ const TemplateWithColorPicker = args => {
           重設
         </Button>
       </div>
-    </RadioWrapper>
+    </RadioContainer>
   )
 }
 

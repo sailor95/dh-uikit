@@ -75,7 +75,7 @@ const StyledFormControl = styled.div`
   }}
 `
 
-const LabelWrapper = styled.div`
+const LabelContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `
@@ -125,7 +125,7 @@ const FormControl = ({
 
   return (
     <StyledFormControl className={className} $placement={placement} {...props}>
-      <LabelWrapper className="form-control__label-wrapper">
+      <LabelContainer className="form-control__label-container">
         <div className="form-control__label">
           {label}
           {isRequired && <RequiredSign>*</RequiredSign>}
@@ -133,7 +133,7 @@ const FormControl = ({
         {maxLength && (
           <MaxLength>{`${childrenValue?.length} / ${maxLength}`}</MaxLength>
         )}
-      </LabelWrapper>
+      </LabelContainer>
 
       {isToggleComponent
         ? children
