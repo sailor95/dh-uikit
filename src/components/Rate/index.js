@@ -16,12 +16,13 @@ const CharacterContainer = styled.div`
 
 const characterCommonStyle = css`
   ${props => (props.$isString ? null : `height: ${props.$size}px;`)}
+  ${props => (props.$isDisabled ? null : 'cursor: pointer;')}
+  
+  color: ${props => (props.$isActive ? props.$starColor : '#F0F0F0')};
   & > * {
     width: ${props => props.$size}px !important;
     height: ${props => props.$size}px !important;
   }
-  cursor: pointer;
-  color: ${props => (props.$isActive ? props.$starColor : '#F0F0F0')};
 `
 
 const LeftCharacter = styled.div`
@@ -83,6 +84,7 @@ const Rate = ({
           $starColor={starColor}
           $isActive={key + 0.5 <= previewValue}
           $allowHalf={allowHalf}
+          $isDisabled={isDisabled}
           onClick={() => handleOnClick(key + 0.5)}
           onMouseOver={() => handleChangePreviewValue(key + 0.5)}
           onMouseLeave={() => handleChangePreviewValue(innerValue)}
@@ -95,6 +97,7 @@ const Rate = ({
           $isString={isString}
           $starColor={starColor}
           $isActive={key + 1 <= previewValue}
+          $isDisabled={isDisabled}
           onClick={() => handleOnClick(key + 1)}
           onMouseOver={() => handleChangePreviewValue(key + 1)}
           onMouseLeave={() => handleChangePreviewValue(innerValue)}
