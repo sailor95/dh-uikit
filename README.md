@@ -18,9 +18,9 @@ npm run storybook
 - Checkbox
 - TextField
 - FormControl
+- Slider
 
 ## WIP
 
-- Slider
 - Rate
 - Upload
