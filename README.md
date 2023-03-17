@@ -19,8 +19,8 @@ npm run storybook
 - TextField
 - FormControl
 - Slider
+- Rate
 
 ## WIP
 
-- Rate
 - Upload
