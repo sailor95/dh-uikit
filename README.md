@@ -24,3 +24,23 @@ npm run storybook
 ## WIP
 
 - Upload
+- Tag
+- Badge
+- Tooltip
+- Collapse
+- Card
+- Carousel
+- Table
+- Infinite scroll
+- Breadcrumb
+- Dropdown
+- Select
+- Drawer
+- Tabs
+- Pagination
+- Spinner
+- Skeleton
+- Progress bar
+- Progress circle
+- Modal
+- Toast
